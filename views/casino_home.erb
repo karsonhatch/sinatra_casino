@@ -1,14 +1,15 @@
 <h2>Welcome to Casino De la Sinatra</h2>
 <br>
-<h3>What is your name?</h3>
-	<form>
-  		Name:<br>
-  		<input type="text" name="name" placeholder="name"><br>
-  		<input type="submit"/>
-	</form>
-<h3>How much money do you have?</h3>
-	<form>
-  		Money:<br>
-  		<input type="number" name="wallet" placeholder="$$$$$"><br>
-  		<input type="submit"/>
-	</form>
+<% if @wallet && @name %>
+	<p>Hello, <%= @name %>! Your balance is <%= @wallet %>.</p>
+<% else %>
+	<h3>What is your name?</h3>
+		<form action="/" method="POST">
+	  		Name:<br>
+	  			<input type="text" name="name" placeholder="name"><br>
+			<h3>How much money do you have?</h3>
+	  		Money:<br>
+	  		<input type="number" name="wallet" placeholder="$$$$$"><br>
+	  		<input type="submit"/>
+		</form>
+<% end %>

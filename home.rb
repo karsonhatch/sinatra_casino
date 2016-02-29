@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'pry'
 
 get '/' do
 	erb :casino_home
@@ -15,5 +16,8 @@ end
 # ========== POST ============
 
 post '/' do
-	params['name']
+	@name = params['name']
+	@wallet = params['wallet']
+	erb :casino_home
 end
+
